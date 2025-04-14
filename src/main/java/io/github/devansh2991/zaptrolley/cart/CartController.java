@@ -18,10 +18,10 @@ public class CartController {
         return cartService.getCart(userId);
     }
 
-    @PostMapping("/add")
-    public void addToCart(@RequestParam Long userId,
-                          @RequestParam Long productId,
-                          @RequestParam int quantity) {
+    @PostMapping("/add/{userId}/{productId}/{quantity}")
+    public void addToCart(@PathVariable Long userId,
+                          @PathVariable Long productId,
+                          @PathVariable int quantity) {
         cartService.addToCart(userId, productId, quantity);
     }
 

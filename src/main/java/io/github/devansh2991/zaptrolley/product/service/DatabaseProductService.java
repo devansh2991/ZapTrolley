@@ -62,13 +62,13 @@ public class DatabaseProductService implements ProductService {
     /**
      * Finds a product in the database using its ID.
      *
-     * @param id the ID of the product to find
+     * @param productId the ID of the product to find
      * @return the found product, or null if no product exists with the given ID
      */
     @Override
-    public Product getProductById(long id) {
-        return productRepository.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException("Product with id " + id + " not found"));
+    public Product getProductById(long productId) {
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException("Product with id " + productId + " not found"));
     }
 
     /**
@@ -91,11 +91,11 @@ public class DatabaseProductService implements ProductService {
      * @return the updated product, or null if no product exists with the given ID
      */
     @Override
-    public Product updateProductPrice(long id, double newPrice) {
+    public Product updateProductPrice(long productId, double newPrice) {
         if (newPrice <= 0) {
             throw new ProductValidationException("Price must be greater than 0");
         }
-        Product product = getProductById(id);
+        Product product = getProductById(productId);
         if (product != null) {
             product.setPrice(newPrice);
             return productRepository.save(product);
@@ -111,11 +111,11 @@ public class DatabaseProductService implements ProductService {
      * @return the updated product, or null if no product exists with the given ID
      */
     @Override
-    public Product updateProductName(long id, String newName) {
+    public Product updateProductName(long productId, String newName) {
         if (newName == null || newName.isEmpty()) {
             throw new ProductValidationException("Name must not be null or empty");
         }
-        Product product = getProductById(id);
+        Product product = getProductById(productId);
         if (product != null) {
             product.setName(newName);
             return productRepository.save(product);
@@ -131,11 +131,11 @@ public class DatabaseProductService implements ProductService {
      * @return the updated product, or null if no product exists with the given ID
      */
     @Override
-    public Product updateProductDescription(long id, String newDescription) {
+    public Product updateProductDescription(long productId, String newDescription) {
         if (newDescription == null || newDescription.isEmpty()) {
             throw new ProductValidationException("Description must not be null or empty");
         }
-        Product product = getProductById(id);
+        Product product = getProductById(productId);
         if (product != null) {
             product.setDescription(newDescription);
             return productRepository.save(product);
@@ -151,11 +151,11 @@ public class DatabaseProductService implements ProductService {
      * @return the updated product, or null if no product exists with the given ID
      */
     @Override
-    public Product updateProductImageUrl(long id, String newImageUrl) {
+    public Product updateProductImageUrl(long productId, String newImageUrl) {
         if (newImageUrl == null || newImageUrl.isEmpty()) {
             throw new ProductValidationException("Image url must not be null or empty");
         }
-        Product product = getProductById(id);
+        Product product = getProductById(productId);
         if (product != null) {
             product.setImageUrl(newImageUrl);
             return productRepository.save(product);
@@ -166,16 +166,16 @@ public class DatabaseProductService implements ProductService {
     /**
      * Deletes a product from the database.
      *
-     * @param id the ID of the product to delete
+     * @param productId the ID of the product to delete
      * @return true if a product was deleted, false if no product exists with the given ID
      */
     @Override
-    public boolean deleteProduct(long id) {
-        if (productRepository.existsById(id)) {
-            productRepository.deleteById(id);
+    public boolean deleteProduct(long productId) {
+        if (productRepository.existsById(productId)) {
+            productRepository.deleteById(productId);
             return true;
         } else {
-            throw new ProductNotFoundException("Product with id " + id + " not found");
+            throw new ProductNotFoundException("Product with id " + productId + " not found");
         }
     }
 }

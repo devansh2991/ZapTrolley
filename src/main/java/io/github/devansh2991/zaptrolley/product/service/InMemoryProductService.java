@@ -49,9 +49,9 @@ public class InMemoryProductService implements ProductService {
      * @return The found product or null if not found
      */
     @Override
-    public Product getProductById(long id) {
+    public Product getProductById(long productId) {
         for (Product product : products) {
-            if (product.getId() == id) {
+            if (product.getProductId() == productId) {
                 return product;
             }
         }
@@ -82,8 +82,8 @@ public class InMemoryProductService implements ProductService {
      * @return The updated product or null if not found
      */
     @Override
-    public Product updateProductPrice(long id, double newPrice) {
-        Product product = getProductById(id);
+    public Product updateProductPrice(long productId, double newPrice) {
+        Product product = getProductById(productId);
         if (product != null) {
             product.setPrice(newPrice);
         }
@@ -98,8 +98,8 @@ public class InMemoryProductService implements ProductService {
      * @return The updated product or null if not found
      */
     @Override
-    public Product updateProductName(long id, String newName) {
-        Product product = getProductById(id);
+    public Product updateProductName(long productId, String newName) {
+        Product product = getProductById(productId);
         if (product != null) {
             product.setName(newName);
         }
@@ -114,8 +114,8 @@ public class InMemoryProductService implements ProductService {
      * @return The updated product or null if not found
      */
     @Override
-    public Product updateProductDescription(long id, String newDescription) {
-        Product product = getProductById(id);
+    public Product updateProductDescription(long productId, String newDescription) {
+        Product product = getProductById(productId);
         if (product != null) {
             product.setDescription(newDescription);
         }
@@ -130,8 +130,8 @@ public class InMemoryProductService implements ProductService {
      * @return The updated product or null if not found
      */
     @Override
-    public Product updateProductImageUrl(long id, String newImageUrl) {
-        Product product = getProductById(id);
+    public Product updateProductImageUrl(long productId, String newImageUrl) {
+        Product product = getProductById(productId);
         if (product != null) {
             product.setImageUrl(newImageUrl);
         }
@@ -145,8 +145,8 @@ public class InMemoryProductService implements ProductService {
      * @return true if product was deleted, false if not found
      */
     @Override
-    public boolean deleteProduct(long id) {
-        Product product = getProductById(id);
+    public boolean deleteProduct(long productId) {
+        Product product = getProductById(productId);
         if (product != null) {
             products.remove(product);
             return true;

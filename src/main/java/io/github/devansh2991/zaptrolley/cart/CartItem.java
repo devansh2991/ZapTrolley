@@ -7,13 +7,15 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Entity
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long cartId;
 
     @ManyToOne
     private Product product;
@@ -32,5 +34,57 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    // Getters and setters...
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Long getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Long cartId) {
+        this.cartId = cartId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CartItem cartItem = (CartItem) o;
+        return quantity == cartItem.quantity && Objects.equals(cartId, cartItem.cartId) && Objects.equals(product, cartItem.product) && Objects.equals(user, cartItem.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cartId, product, user, quantity);
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "cartId=" + cartId +
+                ", product=" + product +
+                ", user=" + user +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

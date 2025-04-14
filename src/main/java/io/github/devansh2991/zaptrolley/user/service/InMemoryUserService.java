@@ -16,9 +16,9 @@ public class InMemoryUserService implements UserService {
     }
 
     @Override
-    public User getUserById(Long id) {
+    public User getUserById(Long userId) {
         for (User user : users) {
-            if (user.getId() == id) {
+            if (user.getUserId() == userId) {
                 return user;
             }
         }

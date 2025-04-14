@@ -57,9 +57,9 @@ public class ProductController {
      * @return ResponseEntity containing the product with HTTP status 200 (OK) if found,
      * or HTTP status 404 (Not Found) if the product doesn't exist
      */
-    @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable long id) {
-        Product product = productService.getProductById(id);
+    @GetMapping("/{productId}")
+    public ResponseEntity<Product> getProductById(@PathVariable long productId) {
+        Product product = productService.getProductById(productId);
         if (product != null) {
             return ResponseEntity.ok(product);
         }
@@ -90,12 +90,12 @@ public class ProductController {
      * @return ResponseEntity containing the updated product with HTTP status 200 (OK) if found,
      * or HTTP status 404 (Not Found) if the product doesn't exist
      */
-    @PutMapping("/{id}/price")
+    @PutMapping("/{productId}/price")
     public ResponseEntity<Product> updateProductPrice(
-            @PathVariable long id,
+            @PathVariable long productId,
             @RequestParam double price
     ) {
-        Product product = productService.updateProductPrice(id, price);
+        Product product = productService.updateProductPrice(productId, price);
         if (product != null) {
             return ResponseEntity.ok(product);
         }
@@ -110,12 +110,12 @@ public class ProductController {
      * @return ResponseEntity containing the updated product with HTTP status 200 (OK) if found,
      * or HTTP status 404 (Not Found) if the product doesn't exist
      */
-    @PutMapping("/{id}/name")
+    @PutMapping("/{productId}/name")
     public ResponseEntity<Product> updateProductName(
-            @PathVariable long id,
+            @PathVariable long productId,
             @RequestParam String name
     ) {
-        Product product = productService.updateProductName(id, name);
+        Product product = productService.updateProductName(productId, name);
         if (product != null) {
             return ResponseEntity.ok(product);
         }
@@ -130,12 +130,12 @@ public class ProductController {
      * @return ResponseEntity containing the updated product with HTTP status 200 (OK) if found,
      * or HTTP status 404 (Not Found) if the product doesn't exist
      */
-    @PutMapping("/{id}/description")
+    @PutMapping("/{productId}/description")
     public ResponseEntity<Product> updateProductDescription(
-            @PathVariable long id,
+            @PathVariable long productId,
             @RequestParam String description
     ) {
-        Product product = productService.updateProductDescription(id, description);
+        Product product = productService.updateProductDescription(productId, description);
         if (product != null) {
             return ResponseEntity.ok(product);
         }
@@ -150,12 +150,12 @@ public class ProductController {
      * @return ResponseEntity containing the updated product with HTTP status 200 (OK) if found,
      * or HTTP status 404 (Not Found) if the product doesn't exist
      */
-    @PutMapping("/{id}/imageUrl")
+    @PutMapping("/{productId}/imageUrl")
     public ResponseEntity<Product> updateProductImageUrl(
-            @PathVariable long id,
+            @PathVariable long productId,
             @RequestParam String imageUrl
     ) {
-        Product product = productService.updateProductImageUrl(id, imageUrl);
+        Product product = productService.updateProductImageUrl(productId, imageUrl);
         if (product != null) {
             return ResponseEntity.ok(product);
         }
@@ -169,9 +169,9 @@ public class ProductController {
      * @return ResponseEntity with a success message and HTTP status 200 (OK) if deleted,
      * or an error message and HTTP status 404 (Not Found) if the product doesn't exist
      */
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteProduct(@PathVariable long id) {
-        boolean deleted = productService.deleteProduct(id);
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<String> deleteProduct(@PathVariable long productId) {
+        boolean deleted = productService.deleteProduct(productId);
         if (deleted) {
             return ResponseEntity.ok("Product deleted successfully");
         }

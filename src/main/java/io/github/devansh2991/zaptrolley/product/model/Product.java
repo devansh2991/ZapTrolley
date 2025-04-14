@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long productId;
 
     /**
      * The name of the product.
@@ -53,12 +53,12 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    public long getId() {
-        return id;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setProductId(long ProductId) {
+        this.productId = ProductId;
     }
 
     public String getName() {
@@ -98,7 +98,7 @@ public class Product {
         if (o == null || getClass() != o.getClass()) return false;
 
         Product product = (Product) o;
-        return id == product.id && Double.compare(price, product.price) == 0
+        return productId == product.productId && Double.compare(price, product.price) == 0
                 && Objects.equals(name, product.name)
                 && Objects.equals(description, product.description)
                 && Objects.equals(imageUrl, product.imageUrl);
@@ -106,7 +106,7 @@ public class Product {
 
     @Override
     public int hashCode() {
-        int result = Long.hashCode(id);
+        int result = Long.hashCode(productId);
         result = 31 * result + Objects.hashCode(name);
         result = 31 * result + Objects.hashCode(description);
         result = 31 * result + Double.hashCode(price);
@@ -117,7 +117,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + id +
+                "productId=" + productId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +

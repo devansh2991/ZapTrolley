@@ -9,17 +9,17 @@ public interface ProductService {
 
     List<Product> getAllProducts();
 
-    Product getProductById(long id);
+    Product getProductById(long productId);
 
     Product getProductByName(String name);
 
-    Product updateProductPrice(long id, double newPrice);
+    Product updateProductPrice(long productId, double newPrice);
 
-    Product updateProductName(long id, String newName);
+    Product updateProductName(long productId, String newName);
 
-    Product updateProductDescription(long id, String newDescription);
+    Product updateProductDescription(long productId, String newDescription);
 
-    Product updateProductImageUrl(long id, String newImageUrl);
+    Product updateProductImageUrl(long productId, String newImageUrl);
 
-    boolean deleteProduct(long id);
+    boolean deleteProduct(long productId);
 }
