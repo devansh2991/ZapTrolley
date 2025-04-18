@@ -1,4 +1,4 @@
-package io.github.devansh2991.zaptrolley.cart;
+package io.github.devansh2991.zaptrolley.cart.model;
 
 import io.github.devansh2991.zaptrolley.product.model.Product;
 import io.github.devansh2991.zaptrolley.user.model.User;
@@ -15,7 +15,7 @@ import java.util.Objects;
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cartId;
+    private Long cartItemId;
 
     @ManyToOne
     private Product product;
@@ -34,54 +34,30 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public Long getCartId() {
-        return cartId;
+        return cartItemId;
     }
 
     public void setCartId(Long cartId) {
-        this.cartId = cartId;
+        this.cartItemId = cartId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CartItem cartItem = (CartItem) o;
-        return quantity == cartItem.quantity && Objects.equals(cartId, cartItem.cartId) && Objects.equals(product, cartItem.product) && Objects.equals(user, cartItem.user);
+        return quantity == cartItem.quantity && Objects.equals(cartItemId, cartItem.cartItemId) && Objects.equals(product, cartItem.product) && Objects.equals(user, cartItem.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cartId, product, user, quantity);
+        return Objects.hash(cartItemId, product, user, quantity);
     }
 
     @Override
     public String toString() {
         return "CartItem{" +
-                "cartId=" + cartId +
+                "cartId=" + cartItemId +
                 ", product=" + product +
                 ", user=" + user +
                 ", quantity=" + quantity +

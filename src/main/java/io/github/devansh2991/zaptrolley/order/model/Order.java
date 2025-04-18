@@ -1,4 +1,4 @@
-package io.github.devansh2991.zaptrolley.order;
+package io.github.devansh2991.zaptrolley.order.model;
 
 import jakarta.persistence.*;
 import java.util.Objects;

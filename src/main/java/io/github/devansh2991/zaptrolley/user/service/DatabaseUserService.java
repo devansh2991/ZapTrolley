@@ -27,5 +27,4 @@ public class DatabaseUserService implements UserService {
         return userRepository.save(user);
     }
 
-
 }

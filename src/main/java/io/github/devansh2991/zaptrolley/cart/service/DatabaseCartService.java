@@ -1,5 +1,8 @@
-package io.github.devansh2991.zaptrolley.cart;
+package io.github.devansh2991.zaptrolley.cart.service;
 
+import io.github.devansh2991.zaptrolley.cart.repository.CartItemRepository;
+import io.github.devansh2991.zaptrolley.cart.model.Cart;
+import io.github.devansh2991.zaptrolley.cart.model.CartItem;
 import io.github.devansh2991.zaptrolley.product.model.Product;
 import io.github.devansh2991.zaptrolley.product.repository.ProductRepository;
 import io.github.devansh2991.zaptrolley.user.model.User;

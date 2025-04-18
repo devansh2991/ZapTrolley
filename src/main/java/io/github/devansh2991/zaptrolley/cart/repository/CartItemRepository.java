@@ -1,5 +1,6 @@
-package io.github.devansh2991.zaptrolley.cart;
+package io.github.devansh2991.zaptrolley.cart.repository;
 
+import io.github.devansh2991.zaptrolley.cart.model.CartItem;
 import io.github.devansh2991.zaptrolley.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

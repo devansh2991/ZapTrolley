@@ -1,5 +1,7 @@
-package io.github.devansh2991.zaptrolley.order;
+package io.github.devansh2991.zaptrolley.order.service;
 
+import io.github.devansh2991.zaptrolley.order.repository.OrderRepository;
+import io.github.devansh2991.zaptrolley.order.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,5 +1,6 @@
-package io.github.devansh2991.zaptrolley.order;
+package io.github.devansh2991.zaptrolley.order.repository;
 
+import io.github.devansh2991.zaptrolley.order.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

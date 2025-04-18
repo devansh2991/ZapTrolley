@@ -1,4 +1,6 @@
-package io.github.devansh2991.zaptrolley.cart;
+package io.github.devansh2991.zaptrolley.cart.service;
+
+import io.github.devansh2991.zaptrolley.cart.model.Cart;
 
 public interface CartService {
     Cart getCart(Long userId);

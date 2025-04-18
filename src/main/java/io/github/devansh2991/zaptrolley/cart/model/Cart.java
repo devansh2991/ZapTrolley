@@ -1,4 +1,4 @@
-package io.github.devansh2991.zaptrolley.cart;
+package io.github.devansh2991.zaptrolley.cart.model;
 
 import java.util.List;
 

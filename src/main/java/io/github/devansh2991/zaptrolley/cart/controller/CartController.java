@@ -1,5 +1,7 @@
-package io.github.devansh2991.zaptrolley.cart;
+package io.github.devansh2991.zaptrolley.cart.controller;
 
+import io.github.devansh2991.zaptrolley.cart.service.CartService;
+import io.github.devansh2991.zaptrolley.cart.model.Cart;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
